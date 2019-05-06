@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.4em;
+}
+
+.container {}
+
+#card {
+    padding: 30px;
+    border: 1px solid gray;
+    font-size: 1.6em;
+    font-weight: bold;
+    margin: 10px 0 10px 0;
+}
+
+p.dim {
+    color: #343434;
+}
+
+div.container {
+    margin: auto;
+}
+
+h1 {
+    margin-bottom: 40px;
+}
+
+textarea {
+    width: 100%;
+    height: 20%;
+}
+
+p {
+    text-align: justify;
+}
