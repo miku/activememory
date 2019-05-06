@@ -1,6 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.4em;
+    background: #eaeaea;
 }
 
 .container {}
@@ -21,8 +22,8 @@ div.container {
     margin: auto;
 }
 
-h1 {
-    margin-bottom: 40px;
+h2 {
+    margin: 20px 0 20px 0;
 }
 
 textarea {
