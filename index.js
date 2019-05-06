@@ -38,7 +38,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
         document.getElementById("card").hidden = false;
         document.getElementById("card").innerHTML =
-            matching.length + " ouf of " + words.length + " remembered correctly &mdash; <a href='/'>restart<a>.";
+            matching.length + " ouf of " + words.length +
+            " remembered correctly &mdash; <a href='https://miku.github.io/activememory/'>restart<a>.";
         document.getElementById("checkBtn").hidden = true;
     };
 
