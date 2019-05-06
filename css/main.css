@@ -1,21 +1,22 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     line-height: 1.4em;
     background: #eaeaea;
+    color: #343434;
 }
 
-.container {}
+.container {
+    height: 100vh;
+    background: white;
+    padding: 20px;
+}
 
 #card {
     padding: 30px;
-    border: 1px solid gray;
+    border: 1px dashed gray;
     font-size: 1.6em;
     font-weight: bold;
     margin: 10px 0 10px 0;
-}
-
-p.dim {
-    color: #343434;
 }
 
 div.container {
