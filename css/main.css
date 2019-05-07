@@ -29,6 +29,10 @@ h2 {
     margin: 20px 0 20px 0;
 }
 
+h2>a {
+    text-decoration: none;
+}
+
 textarea {
     width: 100%;
     height: 20%;
