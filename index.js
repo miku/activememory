@@ -1,65 +1,74 @@
-// WIP: Short term memory test.
-var sequence = function(delay, elem, items) {
+// Mostly showing and hiding controls, and attaching event handlers.
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("check").hidden = true;
+    document.getElementById("card").hidden = false;
+
+    // Random sample of words.
+    let words = wordlist.sample(20);
+    let delay = 600;
+
+    // Prepare check for later.
+    let checkBtn = document.getElementById("checkBtn");
+    checkBtn.onclick = function(e) {
+        let text = document.getElementById("test").value;
+        let userInput = text.match(/[^\s]+/g);
+        let hits = intersection(words, userInput);
+
+        document.getElementById("card").hidden = false;
+        document.getElementById("card").innerHTML =
+            hits.length + " ouf of " + words.length +
+            " recalled correctly &mdash; <a href='https://miku.github.io/activememory/'>restart<a>.";
+        document.getElementById("checkBtn").hidden = true;
+    };
+
+    // The start button.
+    let startBtn = document.getElementById("startBtn");
+    startBtn.onclick = function(e) {
+        document.getElementById("card").innerHTML = "Words will appear here.";
+        document.getElementById("check").hidden = true;
+        document.getElementById("test").value = ""; // Clear text area.
+        document.getElementById("startBtn").disabled = true;
+        document.getElementById("startBtn").innerHTML = "Running";
+
+        let elem = document.getElementById("card");
+
+        sequence(delay, elem, words, function() {
+            document.getElementById("check").hidden = false;
+            document.getElementById("card").hidden = true;
+            document.getElementById("startBtn").hidden = true;
+            document.getElementById("test").focus();
+        });
+    };
+});
+
+// sequence flashes items (e.g. words or any HTML) in in a given element with a
+// delay (in ms). A function donecb is called, when the sequence is done.
+function sequence(delay, elem, items, donecb) {
     if (!isElement(elem)) {
         throw "not a node: " + elem;
     }
-    var items = items ? items : [];
-    var delay = typeof delay === "number" ? delay : 600;
-
+    let items = items ? items : [];
+    let delay = typeof delay === "number" ? delay : 600;
     var i = 0;
-    var step = function() {
+    let step = function() {
         if (i < items.length) {
             elem.innerHTML = items[i];
             i += 1;
             setTimeout(step, delay);
         } else {
-            document.getElementById("check").hidden = false;
-            document.getElementById("card").hidden = true;
-            document.getElementById("startBtn").hidden = true;
-            document.getElementById("test").focus();
+            if (typeof donecb === 'function') {
+                donecb();
+            }
         }
     };
     setTimeout(step, delay);
 };
 
-document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("check").hidden = true;
-    document.getElementById("card").hidden = false;
-
-    // Random choice of words.
-    words = wordlist.sample(20);
-
-    // Prepare check for later.
-    let checkBtn = document.getElementById("checkBtn");
-    checkBtn.onclick = function(e) {
-        var text = document.getElementById("test").value;
-        var userInput = text.match(/[^\s]+/g);
-        var matching = intersection(words, userInput);
-
-        document.getElementById("card").hidden = false;
-        document.getElementById("card").innerHTML =
-            matching.length + " ouf of " + words.length +
-            " remembered correctly &mdash; <a href='https://miku.github.io/activememory/'>restart<a>.";
-        document.getElementById("checkBtn").hidden = true;
-    };
-
-    let startBtn = document.getElementById("startBtn");
-    startBtn.onclick = function(e) {
-        document.getElementById("card").innerHTML = "Words will appear here.";
-        document.getElementById("check").hidden = true;
-        document.getElementById("test").value = "";
-        document.getElementById("startBtn").disabled = true;
-        document.getElementById("startBtn").innerHTML = "Running";
-        var elem = document.getElementById("card");
-        sequence(500, elem, words);
-    };
-});
-
 // intersection return intersecting elements.
 function intersection(a, b) {
-    var a = a ? a : [];
-    var b = b ? b : [];
-    var result = [];
+    let a = a ? a : [];
+    let b = b ? b : [];
+    let result = [];
     for (i = 0; i < a.length; i++) {
         for (j = 0; j < b.length; j++) {
             if (a[i] == b[j]) {
