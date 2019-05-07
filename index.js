@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("startBtn").disabled = true;
         document.getElementById("startBtn").innerHTML = "Running";
 
-        let elem = document.getElementById("card");
+        var elem = document.getElementById("card");
 
         sequence(delay, elem, words, function() {
             document.getElementById("check").hidden = false;
@@ -47,8 +47,8 @@ function sequence(delay, elem, items, donecb) {
     if (!isElement(elem)) {
         throw "not a node: " + elem;
     }
-    let items = items ? items : [];
-    let delay = typeof delay === "number" ? delay : 600;
+    var items = items ? items : [];
+    var delay = typeof delay === "number" ? delay : 600;
     var i = 0;
     let step = function() {
         if (i < items.length) {
@@ -66,8 +66,8 @@ function sequence(delay, elem, items, donecb) {
 
 // intersection return intersecting elements.
 function intersection(a, b) {
-    let a = a ? a : [];
-    let b = b ? b : [];
+    var a = a ? a : [];
+    var b = b ? b : [];
     let result = [];
     for (i = 0; i < a.length; i++) {
         for (j = 0; j < b.length; j++) {
