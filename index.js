@@ -1,11 +1,15 @@
 // Mostly showing and hiding controls, and attaching event handlers.
+// TODO(miku): Do not pollute the global (cf. 25ff The good parts).
+//
+// 2019, May 7, martin.czygan@gmail.com
+//
 document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("check").hidden = true;
     document.getElementById("card").hidden = false;
 
-    // Random sample of words.
     let words = wordlist.sample(20);
     let delay = 600;
+    let homepage = 'https://miku.github.io/activememory';
 
     // Prepare check for later.
     let checkBtn = document.getElementById("checkBtn");
@@ -17,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("card").hidden = false;
         document.getElementById("card").innerHTML =
             hits.length + " ouf of " + words.length +
-            " recalled correctly &mdash; <a href='https://miku.github.io/activememory/'>restart<a>.";
+            " recalled correctly &mdash; <a href='" + homepage + "'>restart<a>.";
         document.getElementById("checkBtn").hidden = true;
     };
 
@@ -26,22 +30,23 @@ document.addEventListener("DOMContentLoaded", function() {
     startBtn.onclick = function(e) {
         document.getElementById("card").innerHTML = "Words will appear here.";
         document.getElementById("check").hidden = true;
-        document.getElementById("test").value = ""; // Clear text area.
         document.getElementById("startBtn").disabled = true;
         document.getElementById("startBtn").innerHTML = "Running";
 
+        // Element to update.
         var elem = document.getElementById("card");
 
         sequence(delay, elem, words, function() {
             document.getElementById("check").hidden = false;
             document.getElementById("card").hidden = true;
             document.getElementById("startBtn").hidden = true;
-            document.getElementById("test").focus();
+            document.getElementById("test").value = ""; // Clear text area.
+            document.getElementById("test").focus(); // And focus.
         });
     };
 });
 
-// sequence flashes items (e.g. words or any HTML) in in a given element with a
+// sequence flashes items (e.g. words or any HTML) in a given element with a
 // delay (in ms). A function donecb is called, when the sequence is done.
 function sequence(delay, elem, items, donecb) {
     if (!isElement(elem)) {
@@ -64,7 +69,7 @@ function sequence(delay, elem, items, donecb) {
     setTimeout(step, delay);
 };
 
-// intersection return intersecting elements.
+// intersection return intersecting elements between two lists.
 function intersection(a, b) {
     var a = a ? a : [];
     var b = b ? b : [];
@@ -98,7 +103,8 @@ function isElement(obj) {
     }
 }
 
-// sample returns a random sample of a given size from array.
+// sample returns a random sample of a given size from array, will fail, if
+// sample size is bigger than array.
 function sample(array, size) {
     var array = array ? array : [];
     var size = size ? size : 10;
