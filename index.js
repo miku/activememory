@@ -76,7 +76,7 @@ function intersection(a, b) {
     let result = [];
     for (i = 0; i < a.length; i++) {
         for (j = 0; j < b.length; j++) {
-            if (a[i] == b[j]) {
+            if (a[i] === b[j]) {
                 result.push(a[i]);
                 break;
             }
