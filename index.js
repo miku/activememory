@@ -1,5 +1,4 @@
 // Mostly showing and hiding controls, and attaching event handlers.
-// TODO(miku): Do not pollute the global (cf. 25ff The good parts).
 //
 // 2019, May 07, martin.czygan@gmail.com
 // 2019, May 12, do not pollute global namespace, use compact function notation
