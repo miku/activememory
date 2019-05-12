@@ -4,23 +4,22 @@
 // 2019, May 07, martin.czygan@gmail.com
 // 2019, May 12, do not pollute global namespace, use compact function notation
 (function() {
-    document.addEventListener('DOMContentLoaded', event => {
-        var $ = document.getElementById.bind(document);
+    // Assumed elements of page:
+    // check: A div containing the textarea for user input.
+    // card: A div for the words to recall.
+    // userinput: The textarea for user input.
+    document.addEventListener('DOMContentLoaded', _ => {
+        const $ = document.getElementById.bind(document);
 
         $('check').hidden = true;
         $('card').hidden = false;
 
-        let words = sample(wordlist, 20);
-        let delay = 600;
-        let homepage = 'https://miku.github.io/activememory';
+        const words = sample(wordlist, 20);
+        const delay = 600;
+        const homepage = 'https://miku.github.io/activememory';
 
-        // Prepare check for later.
-        let checkBtn = document.getElementById('checkBtn');
-        checkBtn.addEventListener('click', event => {
-            let text = document.getElementById('test').value;
-            let userInput = text.match(/[^\s]+/g);
-            let hits = intersection(words, userInput);
-
+        $('checkBtn').addEventListener('click', _ => {
+            const hits = intersection(words, $('userinput').value.match(/[^\s]+/g));
             $('card').hidden = false;
             $('card').innerHTML =
                 hits.length + ' ouf of ' + words.length +
@@ -28,17 +27,15 @@
             $('checkBtn').hidden = true;
         });
 
-        // The start button.
-        let startBtn = document.getElementById('startBtn');
-        startBtn.addEventListener('click', event => {
+        $('startBtn').addEventListener('click', _ => {
             $('startBtn').disabled = true;
             $('startBtn').innerHTML = 'Running';
             sequence($('card'), words, delay, _ => {
                 $('startBtn').hidden = true;
                 $('card').hidden = true;
                 $('check').hidden = false;
-                $('test').value = ''; // Clear text area.
-                $('test').focus(); // And focus.
+                $('userinput').value = '';
+                $('userinput').focus();
             });
         });
     });
