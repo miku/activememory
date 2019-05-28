@@ -21,7 +21,7 @@
             const hits = intersection(words, $('userinput').value.match(/[^\s]+/g));
             $('card').hidden = false;
             $('card').innerHTML =
-                hits.length + ' ouf of ' + words.length +
+                hits.length + ' out of ' + words.length +
                 ' recalled correctly &mdash; <a href="' + homepage + '">restart<a>.';
             $('checkBtn').hidden = true;
         });
