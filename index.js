@@ -14,7 +14,7 @@
         $('card').hidden = false;
 
         const words = sample(wordlist, 20);
-        const delay = 600;
+        const delay = 950;
         const homepage = 'https://miku.github.io/activememory';
 
         $('checkBtn').addEventListener('click', _ => {
