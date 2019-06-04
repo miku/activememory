@@ -14,7 +14,7 @@
         $('card').hidden = false;
 
         const words = sample(wordlist, 20);
-        const delay = 950;
+        const delay = typeof valueFromFragment("delay") === 'number' ? valueFromFragment("delay") : 950;
         const homepage = 'https://miku.github.io/activememory';
 
         $('checkBtn').addEventListener('click', _ => {
@@ -38,6 +38,28 @@
             });
         });
     });
+
+    // valueFromFragment parses the URL fragment and returns the value for a
+    // given key or an empty string. Allows to put various options into the
+    // fragment, index#delay=123. Separator is comma.
+    const valueFromFragment = (key) => {
+        if (window.location.hash.length == 0) {
+            return "";
+        }
+        const value = window.location.hash.substring(1);
+        const pairs = value.split(",");
+        for (let i = 0; i < pairs.length; i++) {
+            const kv = pairs[i].split("=");
+            if (kv.length !== 2) {
+                continue;
+            }
+            if (key !== kv[0].trim()) {
+                continue;
+            }
+            return parseInt(kv[1].trim(), 10);
+        }
+        return "";
+    }
 
     // sequence flashes items (e.g. words or any HTML) in a given element with a
     // delay (in ms). A function donecb is called, when the sequence is done.
