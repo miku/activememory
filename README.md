@@ -13,6 +13,6 @@ carpentries/instructor-training](https://github.com/carpentries/instructor-train
 
 There is a default delay. The delay can be set to another value via URL fragment:
 
-* [https://miku.github.io/activememory/#delay=300](https://miku.github.io/activememory/)
+* [https://miku.github.io/activememory/#delay=300](https://miku.github.io/activememory/#delay=300)
   sets the delay to 300ms between words.
 
