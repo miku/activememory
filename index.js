@@ -22,7 +22,7 @@
             $('card').hidden = false;
             $('card').innerHTML =
                 hits.length + ' out of ' + words.length +
-                ' recalled correctly &mdash; <a href="' + homepage + '">restart<a>.';
+                ' recalled correctly &mdash; <a href="' + homepage + '">restart</a>.';
             $('checkBtn').hidden = true;
         });
 
