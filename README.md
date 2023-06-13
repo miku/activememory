@@ -20,3 +20,8 @@ There is a default delay. The delay can be set to another value via URL fragment
 * [https://miku.github.io/activememory/#delay=300](https://miku.github.io/activememory/#delay=300)
   sets the delay to 300ms between words.
 
+## Setting the language
+
+English is the default language. It is possible to add a list of words in other language to the wordlist and select them through a fragment:
+
+* [https://miku.github.io/activememory/#delay=300,lang=it](https://miku.github.io/activememory/#delay=300,lang=it)
