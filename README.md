@@ -9,7 +9,7 @@ branch.
 A page to test short term memory. A related discussion in [#540 at
 carpentries/instructor-training](https://github.com/carpentries/instructor-training/issues/540).
 It is currently used in the [Memory and Cognitive
-Load](https://carpentries.github.io/instructor-training/05-memory/index.html)
+Load](https://data-lessons.github.io/instructor-training/05-memory/index.html)
 unit of the [Instructor
 Training](https://carpentries.github.io/instructor-training/).
 
