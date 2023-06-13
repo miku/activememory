@@ -2,6 +2,7 @@
 //
 // 2019, May 07, martin.czygan@gmail.com
 // 2019, May 12, do not pollute global namespace, use compact function notation
+// 2023, Jun 13, add language support
 (function() {
     // Assumed elements of page:
     // check: A div containing the textarea for user input.
