@@ -15,7 +15,7 @@
         $('card').hidden = false;
 
         const homepage = 'https://miku.github.io/activememory';
-        const delay = typeof valueFromFragment("delay") === 'number' ? parseInt(valueFromFragment("delay"), 10) : 950;
+        const delay = !isNaN(valueFromFragment("delay")) ? parseInt(valueFromFragment("delay"), 10) : 950; // https://stackoverflow.com/a/175787/89391
         const lang = wordlists.hasOwnProperty(valueFromFragment("lang")) ? valueFromFragment("lang") : "en";
         const words = sample(wordlists[lang], 20);
 
