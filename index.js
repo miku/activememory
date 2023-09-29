@@ -1727,7 +1727,7 @@
             'young',
             'your',
             'yourself',
-        ]
+        ],
         es: [
             'Eugenio',
             'ablusado',
