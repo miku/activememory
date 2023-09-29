@@ -26,4 +26,11 @@ English is the default language. It is possible to add a list of words in other 
 
 * [https://miku.github.io/activememory/#delay=300,lang=it](https://miku.github.io/activememory/#delay=300,lang=it)
 
-Currently supported languages are: English (`en`, default), Italian (`it`), Spanish (`es`), Portuguese (`pt`), French (`fr`), and German (`de`).
+Currently supported languages are:
+
+* [English](https://miku.github.io/activememory/) (`en`, default),
+* [Italian](https://miku.github.io/activememory/#lang=it) (`it`),
+* [Spanish](https://miku.github.io/activememory/#lang=es) (`es`),
+* [Portuguese](https://miku.github.io/activememory/#lang=pt) (`pt`),
+* [French](https://miku.github.io/activememory/#lang=fr) (`fr`), and
+* [German](https://miku.github.io/activememory/#lang=de) (`de`).
