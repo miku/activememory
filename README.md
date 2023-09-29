@@ -25,3 +25,5 @@ There is a default delay. The delay can be set to another value via URL fragment
 English is the default language. It is possible to add a list of words in other language to the wordlist and select them through a fragment:
 
 * [https://miku.github.io/activememory/#delay=300,lang=it](https://miku.github.io/activememory/#delay=300,lang=it)
+
+Currently supported languages are: English (`en`, default), Italian (`it`), Spanish (`es`), Portuguese (`pt`), French (`fr`), and German (`de`).
